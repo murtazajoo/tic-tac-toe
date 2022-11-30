@@ -82,7 +82,6 @@ const getWinner = () => {
     winner.innerText = `The match was a Tie`;
     return;
   }
-  console.log(board);
   if (win && win !== "t") {
     updateLocal(win);
   }
