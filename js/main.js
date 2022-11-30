@@ -67,7 +67,7 @@ const getWinner = () => {
       board[combo[0]] === board[combo[1]] &&
       board[combo[1]] === board[combo[2]]
     ) {
-      win = board[combo[0]] === "X" ? "one" : "two";
+      win = board[combo[0]] === "X" ? "one (X)" : "two (O)";
       resultBox.style.display = "flex";
       winner.innerText = `player "${win}" won`;
       updateLocal(win);
@@ -124,7 +124,9 @@ const showLeader = () => {
   let finalHtml = "";
   max.forEach((e) => {
     finalHtml += `  <tr>
-            <td>${max.indexOf(e) + 1}</td>
+            <td>${
+              max.indexOf(e) + 1 === 1 ? `<i class="fas fa-crown"></i>` : `2nd`
+            }</td>
             <td>Player ${e.player}</td>
             <td>${e.wins}</td>
           </tr>
@@ -154,12 +156,12 @@ document
 
 let emptyLeaderboard = [
   {
-    player: "one",
+    player: "one (X)",
     wins: 0,
   },
   {
-    player: "two",
-    wins: 10,
+    player: "two (O)",
+    wins: 0,
   },
 ];
 if (localStorage.getItem("leaderboard") === null) {

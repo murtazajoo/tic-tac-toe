@@ -6,15 +6,17 @@ body,
   box-sizing: border-box;
 }
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   min-height: 100vh;
   background-color: rgba(127, 255, 212, 0.185);
   width: 100%;
   overflow-x: hidden;
 }
+:root {
+  --comfortaa: "Comfortaa", arial;
+  --permanent: "Permanent Marker", sans-serif;
+}
+
 .container {
   border: 1px solid #333;
   padding: 30px;
@@ -31,7 +33,7 @@ body {
   width: 6rem;
   height: 6rem;
   font-size: 3em;
-  font-family: "Permanent Marker", sans-serif;
+  font-family: var(--permanent);
   background-color: rgba(255, 255, 255, 0.814);
   border: 1px solid #ff590066;
 }
@@ -50,15 +52,12 @@ body {
   backdrop-filter: blur(6px);
 }
 .holder {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   height: 30rem;
   max-width: 400px;
   width: 90%;
   background-color: rgba(51, 51, 51, 0.474);
-  font-family: "Comfortaa", cursive;
+  font-family: var(--comfortaa);
 }
 .holder p {
   font-size: 3em;
@@ -70,7 +69,7 @@ body {
   padding: 15px 30px;
   border-radius: 5px;
   border: none;
-  font-family: "Comfortaa", cursive;
+  font-family: var(--comfortaa);
 }
 
 #turn-conatiner {
@@ -80,15 +79,14 @@ body {
 }
 #turn-conatiner > p {
   font-size: 1.75rem;
-  font-family: "Comfortaa", cursive;
+  font-family: var(--comfortaa);
 }
 #turn_holder {
-  display: flex;
-  justify-content: space-around;
+  justify-content: space-around !important;
   align-items: center;
   padding: 10px 0;
   font-size: 20px;
-  /* font-family: "Comfortaa", cursive; */
+  /* font-family: var(--comfortaa); */
 }
 
 #turn_holder div {
@@ -106,32 +104,13 @@ body {
   transform: scale3d(1.3, 1.3, 1.3);
   border: none !important;
 }
-.computer_box {
-  display: flex;
-  align-items: center;
-}
-
-.computer_box label {
-  font-family: "Comfortaa", cursive;
-}
-.computer_box input {
-  padding: 5px;
-  margin: 0px 5px;
-  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
-    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
-    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
-    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
-    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
-}
 
 #choose {
   background-color: #f9f9f9ad;
   backdrop-filter: blur(5px);
   inset: 0;
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   flex-direction: column;
   /* display: none; */
 }
@@ -146,14 +125,14 @@ body {
   color: #f9f9f9;
   border-radius: 10px;
   letter-spacing: 3px;
-  font-family: "Permanent Marker", sans-serif;
+  font-family: var(--permanent);
 }
 
 #lastmatch {
   margin-bottom: 50px;
   font-size: 20px;
   color: #333;
-  font-family: "Comfortaa", cursive;
+  font-family: var(--comfortaa);
 }
 
 #lastmatch i {
@@ -164,7 +143,10 @@ body {
 #lastmatch span {
   color: orange;
 }
-
+#lastmatch p {
+  text-align: center;
+  margin: 5px;
+}
 #leaderboard {
   background-color: #f9f9f9ad;
   backdrop-filter: blur(5px);
@@ -179,7 +161,7 @@ body {
 #leaderboard p {
   font-size: 40px;
   padding: 10px 0;
-  font-family: "Comfortaa", cursive;
+  font-family: var(--comfortaa);
   color: rgba(255, 123, 0, 0.748);
 }
 
@@ -196,9 +178,11 @@ td,
 th {
   padding: 8px 4px;
   text-align: center;
+  font-size: 20px;
+  font-family: var(--comfortaa);
 }
 tbody {
-  height: 60vh;
+  height: 40vh;
   overflow-y: auto;
 }
 
@@ -220,4 +204,16 @@ tbody {
 
 button {
   cursor: pointer;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav {
+  position: absolute;
+  top: 5vh;
+  font-family: var(--comfortaa);
+  z-index: 2;
 }

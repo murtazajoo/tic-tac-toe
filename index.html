@@ -11,11 +11,12 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
+  <body class="center">
+    <nav><h1>Tic Tac Toe</h1></nav>
     <div class="container">
       <div id="turn-conatiner">
         <p>Turn</p>
-        <div id="turn_holder">
+        <div id="turn_holder" class="center">
           <div class="turns">
             <p>X</p>
           </div>
@@ -34,21 +35,21 @@
       </div>
 
       <div id="options">
-        <button onclick="window.location.reload();">Reset</button>
+        <button onclick="window.location.reload();">restart</button>
         <button id="leaderboard_btn">
           <i class="fa fa-bar-chart"> leaderboard</i>
         </button>
       </div>
     </div>
     <div class="winner" id="winner-result">
-      <div class="holder">
+      <div class="holder center">
         <p id="winner"></p>
         <button onclick="begin()">play again</button>
       </div>
     </div>
-    <div id="choose">
+    <div id="choose" class="center">
       <div id="lastmatch">
-        <i class="fas fa-crown"></i>
+        <p><i class="fas fa-crown"></i></p>
         <p>
           last match winner: Player <span id="last-match-winner"> One</span>
         </p>
