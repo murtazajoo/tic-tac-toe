@@ -8,6 +8,7 @@ const winnerCombo = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+
 let computerBox = false;
 let board;
 let turn = "X";
@@ -21,6 +22,7 @@ let leaderBoard = document.getElementById("leaderboard");
 let leaderBtn = document.getElementById("leaderboard_btn");
 let tableBody = document.getElementById("tbody");
 let lastMatch = document.getElementById("lastmatch");
+
 function begin() {
   board = ["", "", "", "", "", "", "", "", ""];
   turn = "X";
@@ -112,9 +114,11 @@ const choose = (robot) => {
   }
   document.getElementById("choose").style.display = "none";
 };
+
 const closeLeader = () => {
   leaderBoard.style.display = "none";
 };
+
 const showLeader = () => {
   leaderBoard.style.display = "flex";
   let score = JSON.parse(localStorage.getItem("leaderboard"));
@@ -145,11 +149,12 @@ const updateLocal = (player) => {
   localStorage.setItem("leaderboard", JSON.stringify(data));
 };
 
-begin();
 document.getElementById("board").addEventListener("click", toogleTurn);
+
 document
   .getElementById("close_leaderboard")
   .addEventListener("click", closeLeader);
+
 document
   .getElementById("leaderboard_btn")
   .addEventListener("click", showLeader);
@@ -175,3 +180,5 @@ if (localStorage.getItem("lastMatch") === null) {
 let lastMatchWinner = JSON.parse(localStorage.getItem("lastMatch"));
 lastMatchWinner === "none" ? (lastMatch.style.display = "none") : "";
 document.getElementById("last-match-winner").innerText = lastMatchWinner;
+
+begin();
