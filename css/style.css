@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&family=Permanent+Marker&display=swap");
+body,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: rgba(127, 255, 212, 0.185);
+  width: 100%;
+  overflow-x: hidden;
+}
+.container {
+  border: 1px solid #333;
+  padding: 30px;
+}
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-shadow: rgba(219, 101, 27, 0.25) 0px 25px 50px -12px;
+  border-radius: 15px;
+  border: 1px solid #ff590066;
+  overflow: hidden;
+}
+#board .btn {
+  width: 6rem;
+  height: 6rem;
+  font-size: 3em;
+  font-family: "Permanent Marker", sans-serif;
+  background-color: rgba(255, 255, 255, 0.814);
+  border: 1px solid #ff590066;
+}
+.btn:disabled,
+.btn[disabled] {
+  color: rgb(254, 106, 0);
+}
+
+.winner {
+  position: absolute;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.103);
+  backdrop-filter: blur(6px);
+}
+.holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 30rem;
+  max-width: 400px;
+  width: 90%;
+  background-color: rgba(51, 51, 51, 0.474);
+  font-family: "Comfortaa", cursive;
+}
+.holder p {
+  font-size: 3em;
+  color: #f9f9f9;
+  padding: 30px 0;
+  text-align: center;
+}
+.holder button {
+  padding: 15px 30px;
+  border-radius: 5px;
+  border: none;
+  font-family: "Comfortaa", cursive;
+}
+
+#turn-conatiner {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+#turn-conatiner > p {
+  font-size: 1.75rem;
+  font-family: "Comfortaa", cursive;
+}
+#turn_holder {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 20px;
+  /* font-family: "Comfortaa", cursive; */
+}
+
+#turn_holder div {
+  border: 1px solid #333;
+  padding: 5px 10px;
+  border-radius: 100px;
+  transition: 500ms;
+  color: #585858;
+}
+
+.turn {
+  background-color: rgba(255, 128, 0, 0.603);
+  color: #585858;
+  box-shadow: rgba(255, 255, 255, 0.5) 0px 5px 15px;
+  transform: scale3d(1.3, 1.3, 1.3);
+  border: none !important;
+}
+.computer_box {
+  display: flex;
+  align-items: center;
+}
+
+.computer_box label {
+  font-family: "Comfortaa", cursive;
+}
+.computer_box input {
+  padding: 5px;
+  margin: 0px 5px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+#choose {
+  background-color: #f9f9f9ad;
+  backdrop-filter: blur(5px);
+  inset: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* display: none; */
+}
+
+#choose button {
+  width: 250px;
+  margin: 10px;
+  padding: 20px;
+  font-size: 40px;
+  border: none;
+  background-color: rgba(255, 123, 0, 0.748);
+  color: #f9f9f9;
+  border-radius: 10px;
+  letter-spacing: 3px;
+  font-family: "Permanent Marker", sans-serif;
+}
+
+#lastmatch {
+  margin-bottom: 50px;
+  font-size: 20px;
+  color: #333;
+  font-family: "Comfortaa", cursive;
+}
+
+#lastmatch i {
+  color: rgba(255, 123, 0, 0.748);
+  font-size: 40px;
+}
+
+#lastmatch span {
+  color: orange;
+}
+
+#leaderboard {
+  background-color: #f9f9f9ad;
+  backdrop-filter: blur(5px);
+  inset: 0;
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5%;
+}
+#leaderboard p {
+  font-size: 40px;
+  padding: 10px 0;
+  font-family: "Comfortaa", cursive;
+  color: rgba(255, 123, 0, 0.748);
+}
+
+table {
+  max-width: 400px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+th {
+  background-color: orange;
+}
+td,
+th {
+  padding: 8px 4px;
+  text-align: center;
+}
+tbody {
+  height: 60vh;
+  overflow-y: auto;
+}
+
+#close_leaderboard {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background-color: transparent;
+}
+
+#options button {
+  border: none;
+  padding: 10px;
+  color: rgb(113, 85, 1);
+  margin: 30px 10px 0 0;
+  background-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}

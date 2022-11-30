@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/1443690ef3.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="turn-conatiner">
+        <p>Turn</p>
+        <div id="turn_holder">
+          <div class="turns">
+            <p>X</p>
+          </div>
+          <div class="turns">
+            <p>O</p>
+          </div>
+        </div>
+      </div>
+      <!-- <p class="players_turn">player <span id="player">X</span>'s turn</p> -->
+      <div id="board">
+        <button class="btn"></button>
+        <button class="btn"></button><button class="btn"></button>
+        <button class="btn"></button><button class="btn"></button>
+        <button class="btn"></button><button class="btn"></button>
+        <button class="btn"></button><button class="btn"></button>
+      </div>
+
+      <div id="options">
+        <button onclick="window.location.reload();">Reset</button>
+        <button id="leaderboard_btn">
+          <i class="fa fa-bar-chart"> leaderboard</i>
+        </button>
+      </div>
+    </div>
+    <div class="winner" id="winner-result">
+      <div class="holder">
+        <p id="winner"></p>
+        <button onclick="begin()">play again</button>
+      </div>
+    </div>
+    <div id="choose">
+      <div id="lastmatch">
+        <i class="fas fa-crown"></i>
+        <p>
+          last match winner: Player <span id="last-match-winner"> One</span>
+        </p>
+      </div>
+      <button onclick="choose()">
+        <i class="fa fa-user" aria-hidden="true"></i> vs
+        <i class="fa fa-user" aria-hidden="true"></i></button
+      ><button onclick="choose('robot')">
+        <i class="fa fa-user" aria-hidden="true"></i> vs
+        <i class="fas fa-robot"></i>
+      </button>
+    </div>
+    <div id="leaderboard">
+      <button id="close_leaderboard">
+        <i class="fa fa-close" style="font-size: 36px"></i>
+      </button>
+      <p>leaderboard</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Player</th>
+            <th>Wins</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>
