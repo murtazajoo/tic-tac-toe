@@ -72,9 +72,7 @@ const getWinner = () => {
       win = board[combo[0]] === "X" ? "one (X)" : "two (O)";
       resultBox.style.display = "flex";
       winner.innerText = `player "${win}" won`;
-      updateLocal(win);
       localStorage.setItem("lastMatch", JSON.stringify(win));
-
       return;
     }
   });
@@ -85,6 +83,10 @@ const getWinner = () => {
     return;
   }
   console.log(board);
+  if (win && win !== "t") {
+    updateLocal(win);
+  }
+
   return;
 };
 
@@ -143,7 +145,7 @@ const updateLocal = (player) => {
   let data = JSON.parse(localStorage.getItem("leaderboard"));
   data.forEach((e) => {
     if (e.player === player) {
-      e.wins++;
+      e.wins = e.wins + 1;
     }
   });
   localStorage.setItem("leaderboard", JSON.stringify(data));
